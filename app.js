@@ -8,7 +8,8 @@ const app = express()
 
 mongoose.Promise = require('bluebird');
 
- const uri = `mongodb://admin:admin@ds229435.mlab.com:29435/swusport`
+ const uri = `mongodb://admin:admin@ds125565.mlab.com:25565/mongo`
+
 mongoose.connect(uri, { useMongoClient: true }, (err, db) => {
     if (err) {
         console.error(err)
