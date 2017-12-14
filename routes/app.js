@@ -4,7 +4,6 @@ const bodyParser = require('body-parser')
 const user = require('./routes/user')
 const _event = require('./routes/event')
 const auth = require('./routes/auth')
-const detail = require('./routes/fooddetails')
 const app = express()
 
 mongoose.Promise = require('bluebird');
@@ -36,7 +35,6 @@ mongoose.connect(uri, { useMongoClient: true }, (err, db) => {
     app.use('/user', user)
     app.use('/auth',auth)
     app.use('/event',_event)
-    app.use('/details', detail)
     const PORT = process.env.PORT || 5000
     app.listen(PORT, () => console.log(`App listening on port ${PORT}`))
 })
