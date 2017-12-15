@@ -41,6 +41,7 @@ router.post('/', (req, res, next) => {
     res.json(user)
   })
 })
+
 router.post('/create', (req, res, next) => {
   const user = new User(req.body);
   user.save((err,user) => {
@@ -50,5 +51,16 @@ router.post('/create', (req, res, next) => {
     res.json(user)
   })
 });
+
+router.put('/', (req, res, next) => {
+  const user = new User(req.body)
+  User.findByIdAndUpdate({ '_id': user._id }, user, (err, users) => {
+    if (err) {
+      return next(err);
+    }
+    console.log(req.body);
+    res.json(users)
+  })
+})
 
 module.exports = router;

@@ -11,7 +11,11 @@ const userSchema = new Schema({
     fname: { type: String, required: true },
     lname: { type: String, required: true },
     status: { type: Number, required: true },    
-    types: { type: Number, required: true },    
+    types: { type: Number, required: true },
+    usertotalCal : [{
+        todayCal: Number,
+        date : Number
+    }],    
     createdAt: { type: Number, default: new Date().getTime() },
     updatedAt: { type: Number, default: new Date().getTime() }
 })
