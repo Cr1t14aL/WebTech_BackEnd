@@ -52,4 +52,15 @@ router.post('/create', (req, res, next) => {
   })
 });
 
+router.put('/', (req, res, next) => {
+  const user = new User(req.body)
+  User.findByIdAndUpdate({ '_id': user._id }, user, (err, users) => {
+    if (err) {
+      return next(err);
+    }
+    console.log(req.body);
+    res.json(users)
+  })
+})
+
 module.exports = router;

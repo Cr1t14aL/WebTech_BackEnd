@@ -11,7 +11,11 @@ const userSchema = new Schema({
     fname: { type: String, required: true },
     lname: { type: String, required: true },
     status: { type: Number, required: true },    
-    types: { type: Number, required: true },    
+    types: { type: Number, required: true },
+    usertotalCal : [{
+        todayCal: Number,
+        date : Number
+    }],    
     createdAt: { type: Number, default: new Date().getTime() },
     updatedAt: { type: Number, default: new Date().getTime() }
 })
@@ -32,7 +36,7 @@ userSchema.pre('save', function(next) {
         // hash the password using our new salt
         bcrypt.hash(user.password, salt, function(err, hash) {
             if (err) return next(err);
-
+//bug
             // override the cleartext password with the hashed one
             user.password = hash;
             next();
