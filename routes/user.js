@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user.model')
 const passwordHash = require('password-hash');
+const _Details = require('../models/foodDetails.model')
 /* GET users listing. */
 
 router.get('/:id', (req, res, next) => {
@@ -39,6 +40,17 @@ router.post('/', (req, res, next) => {
       return next(err);
     }
     res.json(user)
+  })
+})
+
+//update
+router.put('/update', (req, res, next) => {
+  const _user = new User(req.body);
+  User.findByIdAndUpdate( { _id : _user._id}, _event ,(err,_user) => {
+    if(err){
+      return next(err);
+    }
+    res.json(_event)
   })
 })
 
