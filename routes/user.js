@@ -46,11 +46,11 @@ router.post('/', (req, res, next) => {
 //update
 router.put('/update', (req, res, next) => {
   const _user = new User(req.body);
-  User.findByIdAndUpdate( { _id : _user._id}, _event ,(err,_user) => {
+  User.findByIdAndUpdate( { _id : _user._id}, _user ,(err,_user) => {
     if(err){
       return next(err);
     }
-    res.json(_event)
+    res.json(_user)
   })
 })
 
