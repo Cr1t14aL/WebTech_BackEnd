@@ -11,10 +11,7 @@ const userSchema = new Schema({
     fname: { type: String, required: true },
     lname: { type: String, required: true },
     status: { type: Number, required: true },    
-    food : [{
-        todayCal : Number,
-        date : Number
-    }],    
+    types: { type: Number, required: true },    
     createdAt: { type: Number, default: new Date().getTime() },
     updatedAt: { type: Number, default: new Date().getTime() }
 })
